@@ -1,0 +1,42 @@
+var input = document.getElementById('input');
+var result = document.getElementById('result');
+var inputType= document.getElementById('inputType');
+var resultType= document.getElementById('resultType');
+var inputTypeValue,resultTypeValue;
+
+input.addEventListener("keyup",myResult);
+inputType.addEventListener("change",myResult);
+resultType.addEventListener("change",myResult);
+
+inputTypeValue = inputType.value;
+resultTypeValue = resultType.value;
+
+
+function myResult(){
+    inputTypeValue = inputType.value;
+    resultTypeValue = resultType.value;
+
+    if(inputTypeValue==="php" && resultTypeValue==="usd") {
+        result.value=Number(input.value)*0.018;
+    }else if (inputTypeValue==="php" && resultTypeValue==="cad"){
+        result.value = Number(input.value)*0.025;
+    }else if (inputTypeValue=="php" && resultTypeValue==="php"){
+        result.value=input.value
+    }
+
+    if(inputTypeValue==="usd" && resultTypeValue==="php") {
+        result.value=Number(input.value)*55.01;
+    }else if (inputTypeValue==="usd" && resultTypeValue==="cad"){
+        result.value = Number(input.value)*1.35;
+    }else if (inputTypeValue=="usd" && resultTypeValue==="usd"){
+        result.value=input.value
+    }
+
+    if(inputTypeValue==="cad" && resultTypeValue==="php") {
+        result.value=Number(input.value)*40.65;
+    }else if (inputTypeValue==="cad" && resultTypeValue==="usd"){
+        result.value = Number(input.value)*0.74;
+    }else if (inputTypeValue=="cad" && resultTypeValue==="cad"){
+        result.value=input.value
+    }
+}
